@@ -1,0 +1,15 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+import { Container } from "@/components/container";
+import { PageHero } from "@/components/page-hero";
+import { SectionHeading } from "@/components/section-heading";
+import { CtaBand } from "@/components/cta-band";
+import { image } from "@/lib/site";
+
+export const metadata: Metadata = { title: "About Proteger", description: "Discover the Proteger Faucets approach to safety-focused tapware." };
+
+export default function AboutPage() {
+  return <><PageHero eyebrow="About Proteger" title="A focused idea: make everyday tapware more safety-conscious." intro="Proteger Faucets is built around an integrated faucet safety device intended to help reduce common bathroom and water-use hazards."/>
+    <section className="py-20 lg:py-28"><Container><div className="grid gap-14 lg:grid-cols-[1fr_1fr] lg:items-center"><div className="relative min-h-[470px] overflow-hidden rounded-3xl"><Image src={image.interior} alt="Premium contemporary bathroom interior" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover"/></div><div><SectionHeading eyebrow="Our purpose" title="A practical innovation with a human outcome." text="Proteger's original website positions the product as a safety-focused tapware innovation. Its stated ambition is to help minimise the risks of scalding, drowning and overfilling while fitting popular faucet types."/><p className="mt-6 text-sm leading-7 text-steel">The concept is relevant to everyday family spaces as well as apartments, hotels and other commercial settings. The brand's story is best understood through its central product idea: bringing an additional safety consideration into a familiar household fixture.</p></div></div></Container></section>
+    <section className="bg-ink py-20 text-white lg:py-24"><Container><div className="grid gap-12 lg:grid-cols-[.8fr_1.2fr]"><SectionHeading light eyebrow="What guides the work" title="Safety. Practicality. Integration." text="A clear product purpose, expressed through tapware that belongs in real spaces."/><div className="grid gap-7 sm:grid-cols-2"><div className="border-t border-white/20 pt-5"><h3 className="font-display text-xl font-semibold">A clear purpose</h3><p className="mt-3 text-sm leading-7 text-white/55">Focus on reducing the risks associated with everyday water use.</p></div><div className="border-t border-white/20 pt-5"><h3 className="font-display text-xl font-semibold">Integrated thinking</h3><p className="mt-3 text-sm leading-7 text-white/55">A built-in safety device rather than a separate lifestyle accessory.</p></div><div className="border-t border-white/20 pt-5"><h3 className="font-display text-xl font-semibold">Multiple settings</h3><p className="mt-3 text-sm leading-7 text-white/55">Consideration for family, accommodation and commercial environments.</p></div><div className="border-t border-white/20 pt-5"><h3 className="font-display text-xl font-semibold">Compatibility-led</h3><p className="mt-3 text-sm leading-7 text-white/55">Designed around specific faucet categories named by the company.</p></div></div></div></Container></section><CtaBand/></>;
+}

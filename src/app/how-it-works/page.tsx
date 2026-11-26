@@ -1,0 +1,18 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+import { Check, ShieldCheck, Settings2, Droplets } from "lucide-react";
+import { Container } from "@/components/container";
+import { PageHero } from "@/components/page-hero";
+import { SectionHeading } from "@/components/section-heading";
+import { CtaBand } from "@/components/cta-band";
+import { image } from "@/lib/site";
+
+export const metadata: Metadata = { title: "How It Works", description: "Learn about the Proteger integrated faucet safety device and the faucet formats listed as compatible." };
+
+export default function TechnologyPage() {
+  const formats = ["Flick mixer faucets", "Ceramic cartridge rotary faucets", "USA ceramic-type basin sets manufactured as complete units"];
+  return <><PageHero eyebrow="How it works" title="An integrated safety idea, not an add-on afterthought." intro="Proteger describes its product as a built-in safety device for selected faucet formats, designed to help reduce common water-related hazards." imageUrl={image.detail}/>
+    <section className="py-20 lg:py-28"><Container><div className="grid gap-14 lg:grid-cols-2 lg:items-center"><div><SectionHeading eyebrow="The concept" title="A safety device built into the faucet." text="Rather than treating safety as a separate accessory, Proteger's approach places the safety function within the tapware itself. The company describes the concept as patented; detailed internal mechanism diagrams and operating instructions are not currently published on the source website."/><div className="mt-9 space-y-4">{["Integrated into selected faucet formats","Designed to help reduce the risk of unsupervised operation","Developed for residential and commercial environments"].map(t=><div key={t} className="flex items-start gap-3 text-sm leading-6 text-steel"><Check className="mt-0.5 shrink-0 text-blue-700" size={18}/>{t}</div>)}</div></div><div className="relative min-h-[460px] overflow-hidden rounded-3xl bg-slate-200"><Image src={image.basin} alt="Close view of a modern bathroom basin and faucet" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover"/></div></div></Container></section>
+    <section className="bg-ink py-20 text-white lg:py-24"><Container><SectionHeading light eyebrow="Compatibility at a glance" title="Built for familiar faucet categories." text="These are the faucet types specifically named on the Proteger website. Confirm suitability for the exact model and installation before specifying."/><div className="mt-12 grid gap-4 lg:grid-cols-3">{formats.map((f,i)=><div key={f} className="rounded-2xl border border-white/10 bg-white/[.04] p-7"><p className="eyebrow text-blue">0{i+1} / format</p><h3 className="mt-5 font-display text-xl font-semibold">{f}</h3></div>)}</div></Container></section>
+    <section className="py-20"><Container><div className="grid gap-6 md:grid-cols-3">{[{icon:ShieldCheck,title:"Scald-risk reduction",body:"The product is intended to help reduce the risk of scalding, including for older people and people living with dementia."},{icon:Droplets,title:"Water hazard awareness",body:"The company identifies drowning and unsupervised water use among the risks its concept is designed to address."},{icon:Settings2,title:"Faucet-format focus",body:"Compatibility is described by faucet category, so confirming the exact faucet is an important first step."}].map(({icon:Icon,title,body})=><div key={title} className="rounded-2xl bg-mist p-7"><Icon className="text-blue-700" size={25}/><h3 className="mt-6 font-display text-xl font-semibold">{title}</h3><p className="mt-3 text-sm leading-7 text-steel">{body}</p></div>)}</div></Container></section><CtaBand/></>;
+}
