@@ -15,8 +15,10 @@ export default function ProductPage() {
 
   if (!p) return <div className="px-6 py-24 text-center">Product not found. <Link href="/products">Back to shop</Link></div>;
 
+  const productSlug = p.slug;
+
   function addToCart() {
-    add(p.slug);
+    add(productSlug);
     setAdded(true);
   }
 
