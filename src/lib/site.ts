@@ -1,36 +1,12 @@
-export const site = {
-  name: "Proteger Faucets",
-  description: "Proteger Faucets brings an integrated safety device to selected faucet formats, designed to help reduce everyday water-related risks.",
-  url: "https://protegerfaucets.com",
-};
-
-export const navigation = [
-  { label: "Home", href: "/" },
-  { label: "Products", href: "/products" },
-  { label: "How It Works", href: "/how-it-works" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
-];
-
-// Original Proteger product thumbnails, sourced from the live company website.
-export const products = [
-  { name: "Barium Burgundy", family: "Barium collection", image: "https://protegerfaucets.com/wp-content/uploads/2020/03/Barium-Burgundy-177x142.jpg" },
-  { name: "Barium Blue", family: "Barium collection", image: "https://protegerfaucets.com/wp-content/uploads/2020/03/Barium-Blue-177x142.jpg" },
-  { name: "Barium Yellow", family: "Barium collection", image: "https://protegerfaucets.com/wp-content/uploads/2020/03/Barium-Yellow-177x142.jpg" },
-  { name: "Barium Green", family: "Barium collection", image: "https://protegerfaucets.com/wp-content/uploads/2020/03/Barium-Green-177x142.jpg" },
-  { name: "Barium Red", family: "Barium collection", image: "https://protegerfaucets.com/wp-content/uploads/2020/03/Barium-Red-177x142.jpg" },
-  { name: "Semblance", family: "Product range", image: "https://protegerfaucets.com/wp-content/uploads/2016/08/r3f32rf-177x142.jpg" },
-  { name: "Populace", family: "Product range", image: "https://protegerfaucets.com/wp-content/uploads/2020/03/Populace-177x142.jpg" },
-  { name: "Cornet", family: "Product range", image: "https://protegerfaucets.com/wp-content/uploads/2020/03/Cornet-177x142.jpg" },
-];
-
-export const image = {
-  hero: "https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&fm=jpg&q=88&w=2400",
-  productLifestyle: "https://protegerfaucets.com/wp-content/uploads/2015/09/Screenshot-852.png",
-  safety: "https://protegerfaucets.com/wp-content/uploads/2015/09/Free-Proteger-accessories-Copy.png",
-  detail: "https://protegerfaucets.com/wp-content/uploads/2015/09/Screenshot-852-Copy.png",
-  basin: "https://protegerfaucets.com/wp-content/uploads/2015/09/Screenshot-852.png",
-  bathroom: "https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&fm=jpg&q=85&w=1600",
-  interior: "https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&fm=jpg&q=85&w=1600",
-  shower: "https://protegerfaucets.com/wp-content/uploads/2015/09/Free-Proteger-accessories-Copy.png",
-};
+export const site={name:"Proteger Faucets",description:"Shop Proteger faucet safety products and accessories.",url:"https://protegerfaucets.com"};
+export const products=[
+{slug:"barium-burgundy",name:"Barium Burgundy",family:"Barium Collection",image:"https://protegerfaucets.com/wp-content/uploads/2020/03/Barium-Burgundy-177x142.jpg",price:129,description:"A Burgundy finish in the Barium collection. Confirm compatibility with your faucet before ordering."},
+{slug:"barium-blue",name:"Barium Blue",family:"Barium Collection",image:"https://protegerfaucets.com/wp-content/uploads/2020/03/Barium-Blue-177x142.jpg",price:129,description:"A Blue finish in the Barium collection. Confirm compatibility with your faucet before ordering."},
+{slug:"barium-yellow",name:"Barium Yellow",family:"Barium Collection",image:"https://protegerfaucets.com/wp-content/uploads/2020/03/Barium-Yellow-177x142.jpg",price:129,description:"A Yellow finish in the Barium collection. Confirm compatibility with your faucet before ordering."},
+{slug:"barium-green",name:"Barium Green",family:"Barium Collection",image:"https://protegerfaucets.com/wp-content/uploads/2020/03/Barium-Green-177x142.jpg",price:129,description:"A Green finish in the Barium collection. Confirm compatibility with your faucet before ordering."},
+{slug:"barium-red",name:"Barium Red",family:"Barium Collection",image:"https://protegerfaucets.com/wp-content/uploads/2020/03/Barium-Red-177x142.jpg",price:129,description:"A Red finish in the Barium collection. Confirm compatibility with your faucet before ordering."},
+{slug:"semblance",name:"Semblance",family:"Product Range",image:"https://protegerfaucets.com/wp-content/uploads/2016/08/r3f32rf-177x142.jpg",price:149,description:"A product from the Semblance range. Contact Proteger to confirm the appropriate configuration."},
+{slug:"populace",name:"Populace",family:"Product Range",image:"https://protegerfaucets.com/wp-content/uploads/2020/03/Populace-177x142.jpg",price:149,description:"A product from the Populace range. Contact Proteger to confirm the appropriate configuration."},
+{slug:"cornet",name:"Cornet",family:"Product Range",image:"https://protegerfaucets.com/wp-content/uploads/2020/03/Cornet-177x142.jpg",price:149,description:"A product from the Cornet range. Contact Proteger to confirm the appropriate configuration."}
+] as const;
+export const image={hero:"https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&fm=jpg&q=88&w=2400",productLifestyle:"https://protegerfaucets.com/wp-content/uploads/2015/09/Screenshot-852.png",safety:"https://protegerfaucets.com/wp-content/uploads/2015/09/Free-Proteger-accessories-Copy.png",detail:"https://protegerfaucets.com/wp-content/uploads/2015/09/Screenshot-852-Copy.png",basin:"https://protegerfaucets.com/wp-content/uploads/2015/09/Screenshot-852.png"};
