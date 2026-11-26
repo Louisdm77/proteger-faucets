@@ -51,7 +51,7 @@ Import this repository into Vercel. Framework preset: Next.js. Build command: `n
 
 Content is based on the public Proteger Faucets website reviewed for this concept redesign. Product names and compatibility categories reflect information published by Proteger. The source website also states a two-year warranty and describes licensing and consulting-engineer certification; confirm current terms and supporting documentation before publishing commercial claims.
 
-This redesign intentionally does not add unsupported product dimensions, materials, installation instructions, named certification bodies, customer testimonials, performance statistics or contact details. The product cards use editorial bathroom and faucet photography as contextual imagery, not literal photographs of the named Proteger models. Replace these contextual images with approved Proteger product photography before launch.
+This redesign intentionally does not add unsupported product dimensions, materials, installation instructions, named certification bodies, customer testimonials, performance statistics or contact details. Product cards now reference image assets hosted on the original Proteger website. The homepage hero uses editorial faucet photography as contextual imagery, not a verified photograph of a named Proteger model. Confirm that the original image URLs remain available and replace the hero with approved brand photography before launch.
 
 ## Image assets
 
