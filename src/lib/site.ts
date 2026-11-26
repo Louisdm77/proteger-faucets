@@ -25,12 +25,12 @@ export const products = [
 ];
 
 export const image = {
-  hero: "https://images.unsplash.com/photo-1772567732996-bc693c4a016c?auto=format&fit=crop&fm=jpg&q=88&w=2400",
+  hero: "https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&fm=jpg&q=88&w=2400",
   productLifestyle: "https://protegerfaucets.com/wp-content/uploads/2015/09/Screenshot-852.png",
   safety: "https://protegerfaucets.com/wp-content/uploads/2015/09/Free-Proteger-accessories-Copy.png",
   detail: "https://protegerfaucets.com/wp-content/uploads/2015/09/Screenshot-852-Copy.png",
   basin: "https://protegerfaucets.com/wp-content/uploads/2015/09/Screenshot-852.png",
-  bathroom: "https://images.unsplash.com/photo-1772567732996-bc693c4a016c?auto=format&fit=crop&fm=jpg&q=85&w=1600",
-  interior: "https://images.unsplash.com/photo-1772567732996-bc693c4a016c?auto=format&fit=crop&fm=jpg&q=85&w=1600",
+  bathroom: "https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&fm=jpg&q=85&w=1600",
+  interior: "https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&fm=jpg&q=85&w=1600",
   shower: "https://protegerfaucets.com/wp-content/uploads/2015/09/Free-Proteger-accessories-Copy.png",
 };
