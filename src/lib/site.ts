@@ -1,37 +1,36 @@
 export const site = {
   name: "Proteger Faucets",
-  description:
-    "Safety-focused tapware designed to help reduce everyday bathroom risks through an integrated faucet safety device.",
+  description: "Proteger Faucets brings an integrated safety device to selected faucet formats, designed to help reduce everyday water-related risks.",
   url: "https://protegerfaucets.com",
-  email: "Add your preferred contact email",
 };
 
 export const navigation = [
   { label: "Home", href: "/" },
   { label: "Products", href: "/products" },
-  { label: "Technology", href: "/how-it-works" },
-  { label: "Applications", href: "/applications" },
+  { label: "How It Works", href: "/how-it-works" },
   { label: "About", href: "/about" },
-  { label: "FAQs", href: "/faqs" },
   { label: "Contact", href: "/contact" },
 ];
 
+// Original Proteger product thumbnails, sourced from the live company website.
 export const products = [
-  { name: "Barium Burgundy", family: "Barium collection", tone: "burgundy", description: "A Barium range finish. Contact the team for current availability and configuration details." },
-  { name: "Barium Blue", family: "Barium collection", tone: "blue", description: "A Barium range finish. Contact the team for current availability and configuration details." },
-  { name: "Barium Yellow", family: "Barium collection", tone: "yellow", description: "A Barium range finish. Contact the team for current availability and configuration details." },
-  { name: "Barium Green", family: "Barium collection", tone: "green", description: "A Barium range finish. Contact the team for current availability and configuration details." },
-  { name: "Barium Red", family: "Barium collection", tone: "red", description: "A Barium range finish. Contact the team for current availability and configuration details." },
-  { name: "Semblance", family: "Product range", tone: "silver", description: "Part of the Proteger product range. Ask us about the appropriate faucet configuration." },
-  { name: "Populace", family: "Product range", tone: "silver", description: "Part of the Proteger product range. Ask us about the appropriate faucet configuration." },
-  { name: "Cornet", family: "Product range", tone: "silver", description: "Part of the Proteger product range. Ask us about the appropriate faucet configuration." },
+  { name: "Barium Burgundy", family: "Barium collection", image: "https://protegerfaucets.com/wp-content/uploads/2020/03/Barium-Burgundy-177x142.jpg" },
+  { name: "Barium Blue", family: "Barium collection", image: "https://protegerfaucets.com/wp-content/uploads/2020/03/Barium-Blue-177x142.jpg" },
+  { name: "Barium Yellow", family: "Barium collection", image: "https://protegerfaucets.com/wp-content/uploads/2020/03/Barium-Yellow-177x142.jpg" },
+  { name: "Barium Green", family: "Barium collection", image: "https://protegerfaucets.com/wp-content/uploads/2020/03/Barium-Green-177x142.jpg" },
+  { name: "Barium Red", family: "Barium collection", image: "https://protegerfaucets.com/wp-content/uploads/2020/03/Barium-Red-177x142.jpg" },
+  { name: "Semblance", family: "Product range", image: "https://protegerfaucets.com/wp-content/uploads/2016/08/r3f32rf-177x142.jpg" },
+  { name: "Populace", family: "Product range", image: "https://protegerfaucets.com/wp-content/uploads/2020/03/Populace-177x142.jpg" },
+  { name: "Cornet", family: "Product range", image: "https://protegerfaucets.com/wp-content/uploads/2020/03/Cornet-177x142.jpg" },
 ];
 
 export const image = {
-  hero: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2200&q=88",
-  basin: "https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=1400&q=85",
-  bathroom: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1600&q=85",
-  detail: "https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=1200&q=85",
-  interior: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1600&q=85",
-  shower: "https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=1400&q=85",
+  hero: "https://images.unsplash.com/photo-1772567732996-bc693c4a016c?auto=format&fit=crop&fm=jpg&q=88&w=2400",
+  productLifestyle: "https://protegerfaucets.com/wp-content/uploads/2015/09/Screenshot-852.png",
+  safety: "https://protegerfaucets.com/wp-content/uploads/2015/09/Free-Proteger-accessories-Copy.png",
+  detail: "https://protegerfaucets.com/wp-content/uploads/2015/09/Screenshot-852-Copy.png",
+  basin: "https://protegerfaucets.com/wp-content/uploads/2015/09/Screenshot-852.png",
+  bathroom: "https://images.unsplash.com/photo-1772567732996-bc693c4a016c?auto=format&fit=crop&fm=jpg&q=85&w=1600",
+  interior: "https://images.unsplash.com/photo-1772567732996-bc693c4a016c?auto=format&fit=crop&fm=jpg&q=85&w=1600",
+  shower: "https://protegerfaucets.com/wp-content/uploads/2015/09/Free-Proteger-accessories-Copy.png",
 };
