@@ -12,7 +12,7 @@ export function ProductCard({ p, priority = false }: { p: Product; priority?: bo
   return (
     <article className="group flex flex-col overflow-hidden rounded-3xl border border-slate-200/80 bg-white shadow-card transition hover:-translate-y-1 hover:shadow-soft">
       <Link href={`/products/${p.slug}`} className="relative block">
-        <ProductImage src={p.image} alt={`${p.name} faucet`} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 25vw" className="aspect-[4/5]" priority={priority} />
+        <ProductImage src={p.image} w={p.w} h={p.h} alt={`${p.name} faucet`} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 25vw" className="aspect-[4/5]" priority={priority} />
         <span className="absolute left-4 top-4 rounded-full bg-mist px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-steel">{p.category}</span>
         {saving > 0 && <span className="absolute right-4 top-4 rounded-full bg-gold-500 px-3 py-1 text-[11px] font-extrabold text-ink">Save {saving}%</span>}
       </Link>

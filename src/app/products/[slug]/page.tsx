@@ -49,7 +49,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         <Container>
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
             <div className="group rounded-[2rem] border border-slate-200 bg-white p-4 shadow-card">
-              <ProductImage src={p.image} alt={`${p.name} faucet`} sizes="(max-width:1024px) 100vw, 50vw" priority className="aspect-square rounded-3xl" />
+              <ProductImage src={p.image} w={p.w} h={p.h} alt={`${p.name} faucet`} sizes="(max-width:1024px) 100vw, 50vw" priority className="aspect-square rounded-3xl" />
             </div>
             <div className="lg:pt-6">
               <p className="eyebrow text-brand-600">{p.category} faucet</p>

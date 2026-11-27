@@ -27,6 +27,8 @@ type ProductInput = {
   name: string;
   category: Category;
   image: string;
+  w: number;
+  h: number;
   price: number;
   wasPrice?: number;
   summary: string;
@@ -35,7 +37,7 @@ type ProductInput = {
 
 const nickelChrome = "Brushed Nickel or Chrome";
 
-const barium = (colour: string, file: string): ProductInput => ({
+const barium = (colour: string, file: string): Omit<ProductInput, "w" | "h"> => ({
   slug: `barium-${colour.toLowerCase()}`,
   name: `Barium ${colour}`,
   category: "Kitchen",
@@ -46,7 +48,9 @@ const barium = (colour: string, file: string): ProductInput => ({
   finishes: `Chrome with ${colour.toLowerCase()} hose`,
 });
 
-const productList: ProductInput[] = [
+const dims: Record<string, [number, number]> = {"sentry": [392, 640], "barium-black": [383, 529], "barium-blue": [362, 492], "barium-burgundy": [377, 505], "barium-green": [360, 475], "barium-red": [373, 480], "barium-yellow": [375, 489], "cosmos": [349, 350], "metropoliton-mk1": [380, 406], "metropoliton-mk2": [360, 396], "volute": [362, 555], "cornet": [333, 443], "populace": [543, 795], "semblance": [327, 490], "effrontery": [212, 301], "emanate": [162, 296], "skillion-t": [374, 400], "stealth": [402, 505], "skillion-s": [544, 473], "spartus": [360, 553]};
+
+const productList: Omit<ProductInput, "w" | "h">[] = [
   barium("Black", "Barium-Black.jpg"),
   barium("Blue", "Barium-Blue.jpg"),
   barium("Burgundy", "Barium-Burgundy.jpg"),
@@ -191,7 +195,7 @@ const productList: ProductInput[] = [
   },
 ];
 
-export const products = productList;
+export const products: ProductInput[] = productList.map((p) => ({ ...p, w: dims[p.slug]?.[0] ?? 400, h: dims[p.slug]?.[1] ?? 500 }));
 export type Product = (typeof products)[number];
 
 export function getProduct(slug: string) {
@@ -200,6 +204,7 @@ export function getProduct(slug: string) {
 
 export const brandImages = {
   handles: `${wp}/2020/03/Handles.jpg`,
+  handlesSize: [380, 503] as const,
   diagram: "/faucet-diagram.png",
 };
 

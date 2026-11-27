@@ -26,8 +26,8 @@ export default function CartPage() {
               if (!p) return null;
               return (
                 <div key={p.slug} className="flex gap-4 py-5">
-                  <Link href={`/products/${p.slug}`} className="relative h-24 w-24 shrink-0 overflow-hidden rounded-2xl border border-slate-100 bg-white">
-                    <Image src={p.image} alt={p.name} fill sizes="96px" className="product-shot object-contain p-1.5" />
+                  <Link href={`/products/${p.slug}`} className="flex h-24 w-24 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-slate-100 bg-white p-1.5">
+                    <Image src={p.image} alt={p.name} width={p.w} height={p.h} sizes="96px" className="framed-shot max-h-full max-w-full" style={{ width: "auto", height: "auto" }} />
                   </Link>
                   <div className="min-w-0 flex-1">
                     <Link href={`/products/${p.slug}`} className="font-extrabold hover:text-brand-700">{p.name}</Link>

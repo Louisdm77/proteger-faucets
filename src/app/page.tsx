@@ -5,6 +5,7 @@ import { Container } from "@/components/container";
 import { SectionHeading } from "@/components/section-heading";
 import { ProductGrid } from "@/components/product-grid";
 import { CtaBand } from "@/components/cta-band";
+import { ProductImage } from "@/components/product-image";
 import { benefits, brandImages, getProduct, money } from "@/lib/site";
 
 const trust = [
@@ -45,9 +46,7 @@ export default function Home() {
           </div>
           <div className="relative mx-auto w-full max-w-md">
             <div className="group relative z-10 overflow-hidden rounded-[2rem] bg-white p-3 shadow-2xl shadow-black/40">
-              <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-white">
-                <Image src={hero.image} alt={`${hero.name} kitchen faucet`} fill priority sizes="(max-width:1024px) 90vw, 420px" className="product-shot object-contain p-6" />
-              </div>
+              <ProductImage src={hero.image} w={hero.w} h={hero.h} alt={`${hero.name} kitchen faucet`} priority sizes="(max-width:1024px) 90vw, 420px" className="aspect-[4/5] rounded-3xl" pad="p-6" />
               <div className="flex items-center justify-between px-3 pb-2 pt-3 text-ink">
                 <div>
                   <p className="font-display text-lg font-extrabold">{hero.name}</p>
@@ -57,7 +56,7 @@ export default function Home() {
               </div>
             </div>
             <div className="absolute -bottom-6 -left-6 z-20 hidden w-40 overflow-hidden rounded-3xl bg-white p-2 shadow-xl sm:block">
-              <div className="relative aspect-square"><Image src={heroAlt.image} alt={`${heroAlt.name} faucet`} fill sizes="160px" className="product-shot object-contain p-2" /></div>
+              <ProductImage src={heroAlt.image} w={heroAlt.w} h={heroAlt.h} alt={`${heroAlt.name} faucet`} sizes="160px" className="aspect-square" pad="p-2" />
             </div>
             <div className="absolute -right-4 top-8 z-20 flex items-center gap-2 rounded-2xl bg-gold-500 px-4 py-3 text-ink shadow-xl">
               <Lock size={20} strokeWidth={2.6} />
@@ -127,8 +126,8 @@ export default function Home() {
       {/* TWO HANDLES */}
       <section className="py-20 lg:py-24">
         <Container className="grid items-center gap-14 lg:grid-cols-[.9fr_1.1fr]">
-          <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-card">
-            <Image src={brandImages.handles} alt="Proteger standard handle and Automatic Lockable handle" width={600} height={760} className="product-shot h-auto w-full" />
+          <div className="mx-auto w-full max-w-md overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-4 shadow-card">
+            <Image src={brandImages.handles} alt="Proteger standard handle and Automatic Lockable handle" width={380} height={503} sizes="(max-width:1024px) 90vw, 420px" className="framed-shot h-auto w-full" />
           </div>
           <div>
             <SectionHeading eyebrow="Two handles in every box" title="Everyday use or locked — you choose." text="All Proteger faucets come with one standard handle for everyday operation, plus Proteger's Automatic Lockable handle. Change over in moments whenever young children, elderly relatives or guests need protecting." />

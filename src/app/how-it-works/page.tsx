@@ -36,8 +36,8 @@ export default function HowItWorksPage() {
             ))}
           </div>
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-card">
-              <Image src={brandImages.handles} alt="Standard handle and Automatic Lockable handle" width={600} height={760} className="product-shot h-auto w-full" />
+            <div className="mx-auto w-full max-w-md overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-4 shadow-card">
+              <Image src={brandImages.handles} alt="Standard handle and Automatic Lockable handle" width={380} height={503} sizes="(max-width:1024px) 90vw, 420px" className="framed-shot h-auto w-full" />
             </div>
             <div>
               <p className="eyebrow text-brand-600">Who it protects</p>

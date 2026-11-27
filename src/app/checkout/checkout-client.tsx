@@ -140,7 +140,7 @@ export function CheckoutClient({ stripe, paypalClientId, shipping, cancelled }: 
               if (!p) return null;
               return (
                 <div key={l.slug} className="flex items-center gap-3 text-sm">
-                  <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl bg-white"><Image src={p.image} alt="" fill sizes="56px" className="product-shot object-contain p-1" /></div>
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white p-1"><Image src={p.image} alt={p.name} width={p.w} height={p.h} sizes="56px" className="framed-shot max-h-full max-w-full" style={{ width: "auto", height: "auto" }} /></div>
                   <span className="flex-1">{p.name} <span className="text-steel">× {l.quantity}</span></span>
                   <strong>{money(p.price * l.quantity)}</strong>
                 </div>
