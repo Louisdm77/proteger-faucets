@@ -19,7 +19,7 @@ export default function AboutPage() {
       <section className="py-20 lg:py-24">
         <Container className="grid gap-14 lg:grid-cols-[1.15fr_.85fr]">
           <div>
-            <h2 className="font-display text-3xl font-extrabold underline decoration-gold-500 decoration-4 underline-offset-8">MADE AND CERTIFIED IN USA</h2>
+            <h2 className="font-display text-3xl font-extrabold underline decoration-brand-400 decoration-4 underline-offset-8">MADE AND CERTIFIED IN USA</h2>
             <div className="prose-craig mt-4 max-w-2xl text-[17px]">
               <p>Nex-Gen in High Performance Cutting Edge Breakthrough Plastics, Patent Pending. All faucets come with one standard handle and one Automatic Lockable Handle with a completed existing U.S. Patent.</p>
               <p>Coated Brushed Nickel finish (Brushed Stainless Steel look) or Chrome finish, light weight faucets.</p>
@@ -41,7 +41,7 @@ export default function AboutPage() {
               })}
             </div>
 
-            <h2 className="mt-16 font-display text-3xl font-extrabold underline decoration-gold-500 decoration-4 underline-offset-8">FACT SHEET</h2>
+            <h2 className="mt-16 font-display text-3xl font-extrabold underline decoration-brand-400 decoration-4 underline-offset-8">FACT SHEET</h2>
             <div className="prose-craig mt-4 max-w-2xl text-[17px]">
               <p className="font-bold text-ink">PEX (cross-linked polyethylene) is widely replacing copper for residential water supply lines because it is cheaper, faster to install, resists corrosion and is lead free.</p>
               <p className="font-bold text-ink underline underline-offset-4">Pure copper pipes do not contain lead, though lead can still be found on or connected to copper plumbing systems.</p>
@@ -55,13 +55,13 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="bg-ink py-20 text-white">
+      <section className="bg-brand-50/70 py-20">
         <Container className="grid gap-10 lg:grid-cols-2">
           <div>
-            <p className="eyebrow text-gold-400">Our story</p>
-            <h2 className="mt-4 font-display text-3xl font-extrabold">Perfection in the engineering from the word go.</h2>
+            <p className="eyebrow text-brand-600">Our story</p>
+            <h2 className="mt-4 font-display text-3xl font-extrabold text-ink">Perfection in the engineering from the word go.</h2>
           </div>
-          <div className="space-y-4 text-sm leading-7 text-white/70">
+          <div className="space-y-4 text-sm leading-7 text-steel">
             <p>With the backbone of this company coming from the building and engineering industry for over 25 years, we believe our experience and expertise are invaluable. We are committed to the excellence and reliability of our product and the satisfaction of our customers.</p>
             <p>We believe in stopping a safety problem in its tracks &mdash; not just lessening the outcome after it happens &mdash; and our advanced technology lets us do exactly that.</p>
           </div>

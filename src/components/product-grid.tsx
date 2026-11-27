@@ -14,7 +14,7 @@ export function ProductCard({ p, priority = false }: { p: Product; priority?: bo
       <Link href={`/products/${p.slug}`} className="relative block">
         <ProductImage src={p.image} w={p.w} h={p.h} alt={`${p.name} faucet`} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 25vw" className="aspect-[4/5]" priority={priority} />
         <span className="absolute left-4 top-4 rounded-full bg-mist px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-steel">{p.category}</span>
-        {saving > 0 && <span className="absolute right-4 top-4 rounded-full bg-gold-500 px-3 py-1 text-[11px] font-extrabold text-ink">Save {saving}%</span>}
+        {saving > 0 && <span className="absolute right-4 top-4 rounded-full bg-emerald-500 px-3 py-1 text-[11px] font-extrabold text-white">Save {saving}%</span>}
       </Link>
       <div className="flex flex-1 flex-col border-t border-slate-100 p-5">
         <Link href={`/products/${p.slug}`}>
@@ -43,7 +43,7 @@ export function ProductGrid({ initialCategory = "All", limit }: { initialCategor
           {["All", ...categories].map((c) => {
             const n = c === "All" ? products.length : products.filter((p) => p.category === c).length;
             return (
-              <button key={c} role="tab" aria-selected={cat === c} onClick={() => setCat(c)} className={`rounded-full px-5 py-2.5 text-sm font-bold transition ${cat === c ? "bg-ink text-white" : "bg-mist text-steel hover:bg-slate-200"}`}>
+              <button key={c} role="tab" aria-selected={cat === c} onClick={() => setCat(c)} className={`rounded-full px-5 py-2.5 text-sm font-bold transition ${cat === c ? "bg-brand-600 text-white shadow-md shadow-brand-600/25" : "bg-white text-steel ring-1 ring-slate-200 hover:text-brand-700"}`}>
                 {c} <span className="ml-1 opacity-60">{n}</span>
               </button>
             );

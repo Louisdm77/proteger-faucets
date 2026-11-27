@@ -24,28 +24,28 @@ export default function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden bg-ink text-white">
-        <div className="pointer-events-none absolute -left-40 top-20 h-[520px] w-[520px] rounded-full bg-brand-600/25 blur-3xl" />
-        <div className="pointer-events-none absolute -right-20 -top-32 h-[420px] w-[420px] rounded-full bg-gold-500/15 blur-3xl" />
+      <section className="relative overflow-hidden bg-gradient-to-br from-brand-50 via-white to-sky-50">
+        <div className="pointer-events-none absolute -left-40 top-20 h-[520px] w-[520px] rounded-full bg-brand-200/60 blur-3xl" />
+        <div className="pointer-events-none absolute -right-20 -top-32 h-[420px] w-[420px] rounded-full bg-sky-200/50 blur-3xl" />
         <Container className="relative grid items-center gap-14 py-16 lg:grid-cols-[1.1fr_.9fr] lg:py-24">
           <div>
-            <p className="inline-flex items-center gap-2 rounded-full border border-gold-400/40 bg-gold-500/10 px-4 py-1.5 text-xs font-bold text-gold-400">
+            <p className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-4 py-1.5 text-xs font-bold text-brand-700 shadow-sm">
               <KeyRound size={14} /> World&rsquo;s First Automatic Lockable Faucets
             </p>
-            <h1 className="mt-6 font-display text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl">
-              The Only Precision Safety <span className="text-brand-400">Cutting Edge Plastic Faucets</span> in the World
+            <h1 className="mt-6 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-ink sm:text-6xl">
+              The Only Precision Safety <span className="bg-gradient-to-r from-brand-600 to-sky-500 bg-clip-text text-transparent">Cutting Edge Plastic Faucets</span> in the World
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-white/70">
+            <p className="mt-6 max-w-xl text-lg leading-8 text-steel">
               Proteger &lsquo;Protect&rsquo;. Next-generation faucets made and certified in the USA, with a patented Automatic Lockable handle that stops little hands turning on the water.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Link href="/products" className="btn-primary">Shop faucets <ArrowRight size={17} /></Link>
-              <Link href="/how-it-works" className="btn-ghost">How the lock works</Link>
+              <Link href="/how-it-works" className="btn-outline">How the lock works</Link>
             </div>
-            <p className="mt-8 text-sm font-semibold text-white/60">New lower prices &mdash; faucets from <span className="text-white">{money(29)}</span></p>
+            <p className="mt-8 text-sm font-semibold text-steel">New lower prices &mdash; faucets from <span className="text-ink">{money(29)}</span></p>
           </div>
           <div className="relative mx-auto w-full max-w-md">
-            <div className="group relative z-10 overflow-hidden rounded-[2rem] bg-white p-3 shadow-2xl shadow-black/40">
+            <div className="group relative z-10 overflow-hidden rounded-[2rem] bg-white p-3 shadow-2xl shadow-brand-600/15 ring-1 ring-slate-200">
               <ProductImage src={hero.image} w={hero.w} h={hero.h} alt={`${hero.name} kitchen faucet`} priority sizes="(max-width:1024px) 90vw, 420px" className="aspect-[4/5] rounded-3xl" pad="p-6" />
               <div className="flex items-center justify-between px-3 pb-2 pt-3 text-ink">
                 <div>
@@ -55,10 +55,10 @@ export default function Home() {
                 <p className="text-right"><span className="block text-xl font-extrabold">{money(hero.price)}</span><del className="text-xs text-slate-400">{money(hero.wasPrice!)}</del></p>
               </div>
             </div>
-            <div className="absolute -bottom-6 -left-6 z-20 hidden w-40 overflow-hidden rounded-3xl bg-white p-2 shadow-xl sm:block">
+            <div className="absolute -bottom-6 -left-6 z-20 hidden w-40 overflow-hidden rounded-3xl bg-white p-2 shadow-xl ring-1 ring-slate-200 sm:block">
               <ProductImage src={heroAlt.image} w={heroAlt.w} h={heroAlt.h} alt={`${heroAlt.name} faucet`} sizes="160px" className="aspect-square" pad="p-2" />
             </div>
-            <div className="absolute -right-4 top-8 z-20 flex items-center gap-2 rounded-2xl bg-gold-500 px-4 py-3 text-ink shadow-xl">
+            <div className="absolute -right-4 top-8 z-20 flex items-center gap-2 rounded-2xl bg-brand-600 px-4 py-3 text-white shadow-xl shadow-brand-600/30">
               <Lock size={20} strokeWidth={2.6} />
               <span className="text-xs font-extrabold leading-tight">U.S.<br />Patented</span>
             </div>
@@ -90,7 +90,7 @@ export default function Home() {
               <p>
                 The nonmetallic Code 5 plastic is BPA free &mdash; the same plastic baby bottles, cups and plastic faucet cartridges are made from. Our faucets are manufactured inside the United States of America, complying with U.S. Standards, under a new Patent Pending filed via a U.S. Patent Law Firm.
               </p>
-              <p className="font-semibold text-ink underline decoration-gold-500 decoration-2 underline-offset-4">
+              <p className="font-semibold text-ink underline decoration-brand-400 decoration-2 underline-offset-4">
                 Existing brass faucets contain lead, a known cause of cancers, and stainless steel faucets contain chromium, which can also be known to cause cancers.
               </p>
               <p className="font-bold text-ink">The World&rsquo;s First Automatic Lockable is an existing U.S. Patented product.</p>
@@ -105,17 +105,17 @@ export default function Home() {
       </section>
 
       {/* BENEFITS */}
-      <section className="bg-ink py-20 text-white lg:py-24">
+      <section className="bg-gradient-to-b from-white to-brand-50/60 py-20 lg:py-24">
         <Container>
-          <SectionHeading light center eyebrow="Why Proteger" title="The benefits of this product are endless" />
+          <SectionHeading center eyebrow="Why Proteger" title="The benefits of this product are endless" />
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {benefits.map((b, i) => {
               const Icon = benefitIcons[i];
               return (
-                <div key={b.title} className="rounded-3xl border border-white/10 bg-white/[.04] p-8">
-                  <span className="grid h-12 w-12 place-items-center rounded-2xl bg-gold-500 text-ink"><Icon size={22} /></span>
-                  <h3 className="mt-6 font-display text-xl font-extrabold">{b.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-white/65">{b.text}</p>
+                <div key={b.title} className="rounded-3xl border border-slate-200 bg-white p-8 shadow-card transition hover:-translate-y-1 hover:shadow-soft">
+                  <span className="grid h-12 w-12 place-items-center rounded-2xl bg-brand-50 text-brand-600"><Icon size={22} /></span>
+                  <h3 className="mt-6 font-display text-xl font-extrabold text-ink">{b.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-steel">{b.text}</p>
                 </div>
               );
             })}

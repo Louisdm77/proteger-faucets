@@ -35,7 +35,7 @@ export function ContactForm() {
       <label className="form-label">Enquiry type<select name="enquiry" className="form-input" defaultValue="Product information"><option>Product information</option><option>Product compatibility</option><option>Commercial / project enquiry</option><option>General enquiry</option></select></label>
     </div>
     <label className="form-label">How can we help?<textarea name="message" required rows={5} className="form-input resize-y" placeholder="Tell us a little about your project or question..."/></label>
-    <button disabled={status === "sending"} className="inline-flex min-h-12 items-center gap-3 rounded-full bg-blue px-7 text-sm font-semibold text-ink transition hover:bg-ink hover:text-white disabled:opacity-60">{status === "sending" ? "Sending..." : "Send enquiry"} <ArrowUpRight size={17}/></button>
+    <button disabled={status === "sending"} className="btn-primary min-h-12">{status === "sending" ? "Sending..." : "Send enquiry"} <ArrowUpRight size={17}/></button>
     {message && <p role="status" className={`flex items-center gap-2 text-sm ${status === "success" ? "text-emerald-700" : "text-rose-600"}`}>{status === "success" && <CheckCircle2 size={17}/ >}{message}</p>}
     <p className="text-xs leading-5 text-slate-400">This form sends through the configured email service. Add the Resend environment variables before deployment to enable delivery.</p>
   </form>;

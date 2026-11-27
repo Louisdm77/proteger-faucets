@@ -56,7 +56,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
               <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">{p.name}</h1>
               <div className="mt-5 flex items-center gap-3">
                 <Price price={p.price} wasPrice={p.wasPrice} large />
-                {p.wasPrice && <span className="rounded-full bg-gold-500/15 px-3 py-1 text-xs font-extrabold text-gold-600">New lower price</span>}
+                {p.wasPrice && <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-extrabold text-emerald-700">New lower price</span>}
               </div>
               <p className="mt-6 text-base leading-8 text-steel">{p.summary}</p>
               <dl className="mt-6 grid gap-3 rounded-2xl bg-mist p-5 text-sm">

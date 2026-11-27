@@ -24,3 +24,5 @@ body { background: #fff; color: #081629; }
 .btn-ghost:hover { background: rgba(255,255,255,.1); }
 
 .prose-craig p { margin-top: 1rem; line-height: 1.85; color: #3c4b5c; }
+.btn-outline { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; border-radius: 9999px; border: 1px solid #cbd5e1; background: #fff; padding: .9rem 1.6rem; font-size: .9rem; font-weight: 700; color: #081629; transition: border-color .2s, color .2s; }
+.btn-outline:hover { border-color: #0E6BD8; color: #0B56AE; }
