@@ -1,1 +1,62 @@
-"use client";import Link from"next/link";import Image from"next/image";import{useCart}from"@/components/cart-provider";import{products}from"@/lib/site";import{Minus,Plus,Trash2,ShoppingBag}from"lucide-react";export default function Cart(){const{lines,subtotal,setQty,remove}=useCart();return <section className="mx-auto max-w-[1120px] px-6 py-16 lg:px-12"><p className="eyebrow text-blue-600">YOUR BAG</p><h1 className="mt-3 font-display text-4xl font-extrabold">Shopping cart</h1>{!lines.length?<div className="mt-10 rounded-3xl border border-dashed py-20 text-center"><ShoppingBag className="mx-auto text-slate-300" size={42}/><h2 className="mt-4 text-xl font-bold">Your cart is empty</h2><Link href="/products" className="mt-6 inline-flex rounded-full bg-blue-600 px-7 py-3 text-sm font-bold text-white">Shop products</Link></div>:<div className="mt-9 grid gap-10 lg:grid-cols-[1fr_340px]"><div className="divide-y rounded-2xl border px-5">{lines.map(l=>{const p=products.find(x=>x.slug===l.slug)!;return <div key={p.slug} className="flex gap-4 py-5"><div className="relative h-24 w-28 rounded-xl bg-slate-100"><Image src={p.image} alt={p.name} fill unoptimized className="object-contain p-2"/></div><div className="min-w-0 flex-1"><strong>{p.name}</strong><p className="text-sm text-slate-500">${p.price.toFixed(2)}</p><div className="mt-3 flex items-center gap-2"><button onClick={()=>setQty(p.slug,l.quantity-1)} aria-label="Decrease quantity"><Minus size={15}/></button><span>{l.quantity}</span><button onClick={()=>setQty(p.slug,l.quantity+1)} aria-label="Increase quantity"><Plus size={15}/></button><button onClick={()=>remove(p.slug)} className="ml-3 text-xs text-rose-600"><Trash2 className="mr-1 inline" size={13}/>Remove</button></div></div><strong>${(p.price*l.quantity).toFixed(2)}</strong></div>})}</div><aside className="h-fit rounded-2xl bg-slate-50 p-6"><h2 className="text-lg font-extrabold">Order summary</h2><div className="mt-5 flex justify-between text-sm"><span>Subtotal</span><span>${subtotal.toFixed(2)}</span></div><div className="mt-3 flex justify-between text-sm"><span>Shipping</span><span>Calculated later</span></div><hr className="my-5"/><div className="flex justify-between font-extrabold"><span>Total</span><span>${subtotal.toFixed(2)} USD</span></div><p className="mt-3 text-xs text-slate-500">Sample prices. Shipping and taxes are not calculated in this demo.</p><Link href="/checkout" className="mt-6 block rounded-full bg-blue-600 px-5 py-4 text-center text-sm font-bold text-white">Proceed to checkout</Link></aside></div>}</section>}
+"use client";
+
+import Link from "next/link";
+import Image from "next/image";
+import { Minus, Plus, Trash2, ShoppingBag, Lock, ArrowRight } from "lucide-react";
+import { useCart } from "@/components/cart-provider";
+import { getProduct, money } from "@/lib/site";
+
+export default function CartPage() {
+  const { lines, subtotal, setQty, remove } = useCart();
+  return (
+    <section className="mx-auto max-w-[1120px] px-5 py-14 sm:px-8 lg:px-12">
+      <p className="eyebrow text-brand-600">Your bag</p>
+      <h1 className="mt-3 font-display text-4xl font-extrabold">Shopping cart</h1>
+      {!lines.length ? (
+        <div className="mt-10 rounded-3xl border border-dashed border-slate-300 py-20 text-center">
+          <ShoppingBag className="mx-auto text-slate-300" size={44} />
+          <h2 className="mt-4 text-xl font-extrabold">Your cart is empty</h2>
+          <Link href="/products" className="btn-primary mt-6">Shop faucets <ArrowRight size={16} /></Link>
+        </div>
+      ) : (
+        <div className="mt-9 grid gap-10 lg:grid-cols-[1fr_360px]">
+          <div className="divide-y divide-slate-200 rounded-3xl border border-slate-200 px-5">
+            {lines.map((l) => {
+              const p = getProduct(l.slug);
+              if (!p) return null;
+              return (
+                <div key={p.slug} className="flex gap-4 py-5">
+                  <Link href={`/products/${p.slug}`} className="relative h-24 w-24 shrink-0 overflow-hidden rounded-2xl border border-slate-100 bg-white">
+                    <Image src={p.image} alt={p.name} fill sizes="96px" className="product-shot object-contain p-1.5" />
+                  </Link>
+                  <div className="min-w-0 flex-1">
+                    <Link href={`/products/${p.slug}`} className="font-extrabold hover:text-brand-700">{p.name}</Link>
+                    <p className="text-sm text-steel">{money(p.price)} each</p>
+                    <div className="mt-3 flex items-center gap-2">
+                      <div className="flex items-center rounded-full border border-slate-200">
+                        <button onClick={() => setQty(p.slug, l.quantity - 1)} aria-label="Decrease quantity" className="p-2"><Minus size={14} /></button>
+                        <span className="w-7 text-center text-sm font-bold">{l.quantity}</span>
+                        <button onClick={() => setQty(p.slug, Math.min(20, l.quantity + 1))} aria-label="Increase quantity" className="p-2"><Plus size={14} /></button>
+                      </div>
+                      <button onClick={() => remove(p.slug)} className="ml-2 inline-flex items-center gap-1 text-xs font-semibold text-rose-600"><Trash2 size={13} />Remove</button>
+                    </div>
+                  </div>
+                  <strong>{money(p.price * l.quantity)}</strong>
+                </div>
+              );
+            })}
+          </div>
+          <aside className="h-fit rounded-3xl bg-mist p-6">
+            <h2 className="text-lg font-extrabold">Order summary</h2>
+            <div className="mt-5 flex justify-between text-sm"><span>Subtotal</span><span className="font-bold">{money(subtotal)}</span></div>
+            <div className="mt-3 flex justify-between text-sm"><span>Shipping</span><span className="text-steel">At checkout</span></div>
+            <hr className="my-5 border-slate-200" />
+            <div className="flex justify-between text-lg font-extrabold"><span>Total</span><span>{money(subtotal)} <span className="text-xs text-steel">USD</span></span></div>
+            <Link href="/checkout" className="btn-primary mt-6 w-full">Checkout securely <Lock size={15} /></Link>
+            <p className="mt-4 text-center text-xs text-steel">Pay by card (Stripe) or PayPal</p>
+          </aside>
+        </div>
+      )}
+    </section>
+  );
+}

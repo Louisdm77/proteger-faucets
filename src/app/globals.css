@@ -1,13 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 :root { color-scheme: light; }
 html { scroll-behavior: smooth; }
-body { background: #fff; color: #07182B; }
-::selection { background: #1687f8; color: #fff; }
-.eyebrow { font-size: 10px; font-weight: 800; letter-spacing: .2em; line-height: 1.4; text-transform: uppercase; }
-.form-label { display: block; color: #25384b; font-size: 12px; font-weight: 700; }
-.form-input { display: block; width: 100%; margin-top: 9px; border: 1px solid #dbe3eb; border-radius: 12px; background: #f8fafc; padding: 14px 15px; color: #07182B; font-size: 14px; font-weight: 400; outline: none; transition: border .2s, box-shadow .2s; }
-.form-input:focus { border-color: #1687f8; box-shadow: 0 0 0 3px rgba(22,135,248,.14); }
+body { background: #fff; color: #081629; }
+::selection { background: #0E6BD8; color: #fff; }
+
+.eyebrow { font-size: 11px; font-weight: 800; letter-spacing: .18em; line-height: 1.4; text-transform: uppercase; }
+.form-label { display: block; color: #25384b; font-size: 13px; font-weight: 700; }
+.form-input { display: block; width: 100%; margin-top: 8px; border: 1px solid #d6dfe9; border-radius: 12px; background: #f8fafc; padding: 13px 15px; color: #081629; font-size: 15px; outline: none; transition: border .2s, box-shadow .2s; }
+.form-input:focus { border-color: #0E6BD8; box-shadow: 0 0 0 3px rgba(14,107,216,.15); background: #fff; }
 .form-input::placeholder { color: #9aa8b6; }
-@media (prefers-reduced-motion: no-preference) { .reveal { animation: rise .7s both; } @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } } }
+
+/* Product photos on the original site carry a thin blue frame; scale slightly to crop it out. */
+.product-shot { transform: scale(1.045); }
+
+.btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; border-radius: 9999px; background: #0E6BD8; padding: .9rem 1.6rem; font-size: .9rem; font-weight: 800; color: #fff; transition: background .2s, transform .2s; }
+.btn-primary:hover { background: #0B56AE; }
+.btn-primary:disabled { opacity: .6; cursor: not-allowed; }
+.btn-ghost { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; border-radius: 9999px; border: 1px solid rgba(255,255,255,.4); padding: .9rem 1.6rem; font-size: .9rem; font-weight: 700; color: #fff; transition: background .2s; }
+.btn-ghost:hover { background: rgba(255,255,255,.1); }
+
+.prose-craig p { margin-top: 1rem; line-height: 1.85; color: #3c4b5c; }

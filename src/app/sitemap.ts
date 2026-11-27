@@ -1,12 +1,7 @@
 import type { MetadataRoute } from "next";
-import { site } from "@/lib/site";
+import { products, site } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ["", "/products", "/how-it-works", "/applications", "/about", "/faqs", "/contact"];
-  return routes.map((route) => ({
-    url: `${site.url}${route}`,
-    lastModified: new Date(),
-    changeFrequency: route === "" ? "weekly" : "monthly",
-    priority: route === "" ? 1 : route === "/products" ? 0.9 : 0.7
-  }));
+  const pages = ["", "/products", "/how-it-works", "/about", "/faqs", "/contact"].map((p) => ({ url: `${site.url}${p}`, changeFrequency: "weekly" as const, priority: p === "" ? 1 : 0.8 }));
+  return [...pages, ...products.map((p) => ({ url: `${site.url}/products/${p.slug}`, changeFrequency: "weekly" as const, priority: 0.7 }))];
 }

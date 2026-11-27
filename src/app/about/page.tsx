@@ -1,15 +1,73 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { Flag, Lock, Sparkles } from "lucide-react";
 import { Container } from "@/components/container";
 import { PageHero } from "@/components/page-hero";
-import { SectionHeading } from "@/components/section-heading";
 import { CtaBand } from "@/components/cta-band";
-import { image } from "@/lib/site";
+import { brandImages } from "@/lib/site";
 
-export const metadata: Metadata = { title: "About Proteger", description: "Discover the Proteger Faucets approach to safety-focused tapware." };
+export const metadata: Metadata = {
+  title: "About Us — Made and Certified in USA",
+  description: "Proteger: precision safety faucets in next-gen Code 5 plastic, made and certified in the USA, with the U.S. Patented Automatic Lockable handle.",
+};
 
 export default function AboutPage() {
-  return <><PageHero eyebrow="About Proteger" title="A focused idea: make everyday tapware more safety-conscious." intro="Proteger Faucets is built around an integrated faucet safety device intended to help reduce common bathroom and water-use hazards."/>
-    <section className="py-20 lg:py-28"><Container><div className="grid gap-14 lg:grid-cols-[1fr_1fr] lg:items-center"><div className="relative min-h-[470px] overflow-hidden rounded-3xl"><Image src={image.interior} alt="Premium contemporary bathroom interior" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover"/></div><div><SectionHeading eyebrow="Our purpose" title="A practical innovation with a human outcome." text="Proteger's original website positions the product as a safety-focused tapware innovation. Its stated ambition is to help minimise the risks of scalding, drowning and overfilling while fitting popular faucet types."/><p className="mt-6 text-sm leading-7 text-steel">The concept is relevant to everyday family spaces as well as apartments, hotels and other commercial settings. The brand's story is best understood through its central product idea: bringing an additional safety consideration into a familiar household fixture.</p></div></div></Container></section>
-    <section className="bg-ink py-20 text-white lg:py-24"><Container><div className="grid gap-12 lg:grid-cols-[.8fr_1.2fr]"><SectionHeading light eyebrow="What guides the work" title="Safety. Practicality. Integration." text="A clear product purpose, expressed through tapware that belongs in real spaces."/><div className="grid gap-7 sm:grid-cols-2"><div className="border-t border-white/20 pt-5"><h3 className="font-display text-xl font-semibold">A clear purpose</h3><p className="mt-3 text-sm leading-7 text-white/55">Focus on reducing the risks associated with everyday water use.</p></div><div className="border-t border-white/20 pt-5"><h3 className="font-display text-xl font-semibold">Integrated thinking</h3><p className="mt-3 text-sm leading-7 text-white/55">A built-in safety device rather than a separate lifestyle accessory.</p></div><div className="border-t border-white/20 pt-5"><h3 className="font-display text-xl font-semibold">Multiple settings</h3><p className="mt-3 text-sm leading-7 text-white/55">Consideration for family, accommodation and commercial environments.</p></div><div className="border-t border-white/20 pt-5"><h3 className="font-display text-xl font-semibold">Compatibility-led</h3><p className="mt-3 text-sm leading-7 text-white/55">Designed around specific faucet categories named by the company.</p></div></div></div></Container></section><CtaBand/></>;
+  return (
+    <>
+      <PageHero eyebrow="About Proteger" title="The Only Precision Safety Cutting Edge Plastic Faucets in The World" intro="The name Proteger speaks for itself: ‘Protect’." />
+
+      <section className="py-20 lg:py-24">
+        <Container className="grid gap-14 lg:grid-cols-[1.15fr_.85fr]">
+          <div>
+            <h2 className="font-display text-3xl font-extrabold underline decoration-gold-500 decoration-4 underline-offset-8">MADE AND CERTIFIED IN USA</h2>
+            <div className="prose-craig mt-4 max-w-2xl text-[17px]">
+              <p>Nex-Gen in High Performance Cutting Edge Breakthrough Plastics, Patent Pending. All faucets come with one standard handle and one Automatic Lockable Handle with a completed existing U.S. Patent.</p>
+              <p>Coated Brushed Nickel finish (Brushed Stainless Steel look) or Chrome finish, light weight faucets.</p>
+            </div>
+            <div className="mt-10 grid gap-4 sm:grid-cols-3">
+              {[
+                [Flag, "Made in USA", "Manufactured to U.S. Standards"],
+                [Lock, "U.S. Patented", "Automatic Lockable handle"],
+                [Sparkles, "Patent Pending", "Breakthrough Code 5 material"],
+              ].map(([Icon, t, s]) => {
+                const I = Icon as typeof Flag;
+                return (
+                  <div key={t as string} className="rounded-2xl bg-mist p-5">
+                    <I className="text-brand-600" size={22} />
+                    <p className="mt-3 font-extrabold">{t as string}</p>
+                    <p className="mt-1 text-xs text-steel">{s as string}</p>
+                  </div>
+                );
+              })}
+            </div>
+
+            <h2 className="mt-16 font-display text-3xl font-extrabold underline decoration-gold-500 decoration-4 underline-offset-8">FACT SHEET</h2>
+            <div className="prose-craig mt-4 max-w-2xl text-[17px]">
+              <p className="font-bold text-ink">PEX (cross-linked polyethylene) is widely replacing copper for residential water supply lines because it is cheaper, faster to install, resists corrosion and is lead free.</p>
+              <p className="font-bold text-ink underline underline-offset-4">Pure copper pipes do not contain lead, though lead can still be found on or connected to copper plumbing systems.</p>
+              <p>Existing brass faucets contain lead, and stainless steel faucets contain chromium. Proteger&rsquo;s nonmetallic Code 5 plastic is BPA free &mdash; the same plastic baby bottles, cups and plastic faucet cartridges are made from.</p>
+            </div>
+          </div>
+          <aside className="h-fit rounded-[2rem] border border-slate-200 bg-white p-8 shadow-card lg:sticky lg:top-32">
+            <Image src={brandImages.diagram} alt="Proteger faucet diagram: faucet stem in Ultra-High-Molecular-Weight polyethylene, body in Code 5 plastic, and handle" width={546} height={478} className="h-auto w-full" />
+            <p className="mt-4 text-center text-xs font-semibold text-steel">Faucet stem: Ultra-High-Molecular-Weight PE &middot; Faucet body: PP, Code 5 plastic &middot; Faucet handle</p>
+          </aside>
+        </Container>
+      </section>
+
+      <section className="bg-ink py-20 text-white">
+        <Container className="grid gap-10 lg:grid-cols-2">
+          <div>
+            <p className="eyebrow text-gold-400">Our story</p>
+            <h2 className="mt-4 font-display text-3xl font-extrabold">Perfection in the engineering from the word go.</h2>
+          </div>
+          <div className="space-y-4 text-sm leading-7 text-white/70">
+            <p>With the backbone of this company coming from the building and engineering industry for over 25 years, we believe our experience and expertise are invaluable. We are committed to the excellence and reliability of our product and the satisfaction of our customers.</p>
+            <p>We believe in stopping a safety problem in its tracks &mdash; not just lessening the outcome after it happens &mdash; and our advanced technology lets us do exactly that.</p>
+          </div>
+        </Container>
+      </section>
+      <CtaBand />
+    </>
+  );
 }

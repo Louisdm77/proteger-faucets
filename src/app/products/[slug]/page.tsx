@@ -1,45 +1,96 @@
-"use client";
-import { useState } from "react";
-import Image from "next/image";
+import type { Metadata } from "next";
 import Link from "next/link";
-import { useParams } from "next/navigation";
-import { ShoppingBag, ArrowLeft, Check } from "lucide-react";
-import { products } from "@/lib/site";
-import { useCart } from "@/components/cart-provider";
+import { notFound } from "next/navigation";
+import { ChevronRight, Lock, Flag, ShieldCheck, Droplets, Truck, CreditCard } from "lucide-react";
+import { Container } from "@/components/container";
+import { ProductImage } from "@/components/product-image";
+import { Price } from "@/components/price";
+import { AddToCart } from "@/components/add-to-cart";
+import { ProductCard } from "@/components/product-grid";
+import { getProduct, products, site } from "@/lib/site";
 
-export default function ProductPage() {
-  const { slug } = useParams<{ slug: string }>();
-  const p = products.find((x) => x.slug === slug);
-  const { add, count } = useCart();
-  const [added, setAdded] = useState(false);
+export function generateStaticParams() {
+  return products.map((p) => ({ slug: p.slug }));
+}
 
-  if (!p) return <div className="px-6 py-24 text-center">Product not found. <Link href="/products">Back to shop</Link></div>;
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const p = getProduct(slug);
+  if (!p) return {};
+  return { title: `${p.name} ${p.category} Faucet`, description: p.summary, openGraph: { images: [p.image] } };
+}
 
-  const productSlug = p.slug;
-
-  function addToCart() {
-    add(productSlug);
-    setAdded(true);
-  }
+export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const p = getProduct(slug);
+  if (!p) notFound();
+  const related = products.filter((x) => x.category === p.category && x.slug !== p.slug).slice(0, 4);
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: p.name,
+    image: p.image,
+    description: p.summary,
+    brand: { "@type": "Brand", name: site.name },
+    offers: { "@type": "Offer", priceCurrency: "USD", price: p.price.toFixed(2), availability: "https://schema.org/InStock", url: `${site.url}/products/${p.slug}` },
+  };
 
   return (
-    <section className="mx-auto grid max-w-[1180px] gap-12 px-6 py-16 lg:grid-cols-2 lg:px-12">
-      <div className="flex min-h-[420px] items-center justify-center rounded-3xl bg-[#f2f5f8] p-10">
-        <Image src={p.image} alt={p.name} width={650} height={520} unoptimized className="max-h-[440px] w-full object-contain" />
-      </div>
-      <div className="py-4">
-        <Link href="/products" className="text-xs font-bold text-blue-600"><ArrowLeft className="mr-1 inline" size={14} /> All products</Link>
-        <p className="eyebrow mt-8 text-blue-600">{p.family}</p>
-        <h1 className="mt-4 font-display text-4xl font-extrabold text-[#081a2e]">{p.name}</h1>
-        <p className="mt-4 text-3xl font-extrabold">${p.price.toFixed(2)} <span className="text-xs font-medium text-slate-400">sample price</span></p>
-        <p className="mt-6 text-sm leading-8 text-slate-600">{p.description}</p>
-        <div className="mt-7 rounded-2xl border bg-slate-50 p-5 text-sm leading-6 text-slate-600"><strong className="text-[#081a2e]">Compatibility</strong><p className="mt-2">Check faucet type before ordering. Contact Proteger if you need help confirming compatibility.</p></div>
-        <button onClick={addToCart} aria-live="polite" className={`mt-8 flex w-full items-center justify-center gap-2 rounded-full px-7 py-4 text-sm font-extrabold text-white transition sm:w-auto ${added ? "bg-emerald-600" : "bg-[#087cf0]"}`}>
-          {added ? <><Check size={17} /> Added to Cart</> : <><ShoppingBag size={17} /> Add to Cart</>}
-        </button>
-        {added && <div role="status" className="mt-4 max-w-md rounded-xl bg-emerald-50 px-4 py-3 text-sm font-semibold text-emerald-800">Added successfully. Your cart now has {count} {count === 1 ? "item" : "items"}. <Link href="/cart" className="ml-1 underline underline-offset-2">View cart</Link></div>}
-        <p className="mt-4 text-xs text-slate-400">Demo store. No live payment is taken.</p>
-      </div>
-    </section>
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <Container className="py-6">
+        <nav className="flex items-center gap-1 text-xs font-semibold text-steel" aria-label="Breadcrumb">
+          <Link href="/" className="hover:text-ink">Home</Link><ChevronRight size={13} />
+          <Link href="/products" className="hover:text-ink">Shop</Link><ChevronRight size={13} />
+          <span className="text-ink">{p.name}</span>
+        </nav>
+      </Container>
+      <section className="pb-20">
+        <Container>
+          <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
+            <div className="group rounded-[2rem] border border-slate-200 bg-white p-4 shadow-card">
+              <ProductImage src={p.image} alt={`${p.name} faucet`} sizes="(max-width:1024px) 100vw, 50vw" priority className="aspect-square rounded-3xl" />
+            </div>
+            <div className="lg:pt-6">
+              <p className="eyebrow text-brand-600">{p.category} faucet</p>
+              <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">{p.name}</h1>
+              <div className="mt-5 flex items-center gap-3">
+                <Price price={p.price} wasPrice={p.wasPrice} large />
+                {p.wasPrice && <span className="rounded-full bg-gold-500/15 px-3 py-1 text-xs font-extrabold text-gold-600">New lower price</span>}
+              </div>
+              <p className="mt-6 text-base leading-8 text-steel">{p.summary}</p>
+              <dl className="mt-6 grid gap-3 rounded-2xl bg-mist p-5 text-sm">
+                <div className="flex justify-between gap-4"><dt className="text-steel">Finish</dt><dd className="text-right font-bold">{p.finishes}</dd></div>
+                <div className="flex justify-between gap-4"><dt className="text-steel">In the box</dt><dd className="text-right font-bold">Faucet, standard handle + Automatic Lockable handle</dd></div>
+                <div className="flex justify-between gap-4"><dt className="text-steel">Material</dt><dd className="text-right font-bold">Code 5 plastic body, UHMW stem &amp; handle</dd></div>
+              </dl>
+              <div className="mt-6 max-w-sm"><AddToCart slug={p.slug} /></div>
+              <p className="mt-3 text-xs text-steel">Tell us your finish (Brushed Nickel or Chrome) in the order notes at checkout.</p>
+              <ul className="mt-8 grid gap-3 text-sm sm:grid-cols-2">
+                {[
+                  [Lock, "U.S. Patented automatic lock"],
+                  [Flag, "Made & certified in the USA"],
+                  [Droplets, "BPA-free Code 5 plastic"],
+                  [ShieldCheck, "3x stronger than steel"],
+                  [CreditCard, "Secure Stripe & PayPal checkout"],
+                  [Truck, "Shipping calculated at checkout"],
+                ].map(([Icon, label]) => {
+                  const I = Icon as typeof Lock;
+                  return <li key={label as string} className="flex items-center gap-2.5 font-semibold"><I size={17} className="text-brand-600" />{label as string}</li>;
+                })}
+              </ul>
+            </div>
+          </div>
+        </Container>
+      </section>
+      {related.length > 0 && (
+        <section className="bg-mist py-16">
+          <Container>
+            <h2 className="font-display text-3xl font-extrabold">More {p.category.toLowerCase()} faucets</h2>
+            <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">{related.map((r) => <ProductCard key={r.slug} p={r} />)}</div>
+          </Container>
+        </section>
+      )}
+    </>
   );
 }

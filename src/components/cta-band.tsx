@@ -1,6 +1,19 @@
-import { Container } from "./container";
-import { ButtonLink } from "./button-link";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 export function CtaBand() {
-  return <section className="bg-ink py-16 text-white lg:py-20"><Container><div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center"><div className="max-w-2xl"><p className="eyebrow mb-4 text-blue">Let’s talk safety</p><h2 className="font-display text-4xl font-semibold tracking-[-.04em] sm:text-5xl">A safer detail can make a meaningful difference.</h2><p className="mt-5 text-base leading-7 text-white/60">Talk with Proteger about the right product range and faucet configuration for your project.</p></div><ButtonLink href="/contact" light>Discuss your project</ButtonLink></div></Container></section>;
+  return (
+    <section className="bg-brand-600 text-white">
+      <div className="mx-auto flex max-w-[1280px] flex-wrap items-center justify-between gap-6 px-5 py-14 sm:px-8 lg:px-12">
+        <div>
+          <p className="eyebrow text-white/70">Protect what matters</p>
+          <h2 className="mt-2 font-display text-3xl font-extrabold">Every faucet comes with the patented Automatic Lockable handle.</h2>
+        </div>
+        <div className="flex flex-wrap gap-3">
+          <Link href="/products" className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-extrabold text-brand-700">Shop the range <ArrowRight size={16} /></Link>
+          <Link href="/contact" className="btn-ghost">Ask a question</Link>
+        </div>
+      </div>
+    </section>
+  );
 }

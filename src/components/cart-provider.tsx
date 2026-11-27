@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Check, X } from "lucide-react";
 import { products } from "@/lib/site";
 
-export type ProductSlug = (typeof products)[number]["slug"];
+export type ProductSlug = string;
 export type CartLine = { slug: ProductSlug; quantity: number };
 type CartContextValue = {
   lines: CartLine[];
@@ -22,6 +22,7 @@ const CartContext = createContext<CartContextValue | null>(null);
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [lines, setLines] = useState<CartLine[]>([]);
+  const [loaded, setLoaded] = useState(false);
   const [cartNotice, setCartNotice] = useState<string | null>(null);
 
   useEffect(() => {
@@ -44,15 +45,17 @@ export function CartProvider({ children }: { children: ReactNode }) {
     } catch {
       // Ignore invalid or unavailable browser storage.
     }
+    setLoaded(true);
   }, []);
 
   useEffect(() => {
+    if (!loaded) return;
     try {
       localStorage.setItem("proteger-cart", JSON.stringify(lines));
     } catch {
       // Cart remains usable for this session if storage is unavailable.
     }
-  }, [lines]);
+  }, [lines, loaded]);
 
   useEffect(() => {
     if (!cartNotice) return;
@@ -106,7 +109,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         <div
           role="status"
           aria-live="polite"
-          className="fixed bottom-5 right-5 z-[100] flex w-[min( calc(100vw-2.5rem), 390px)] items-center gap-3 rounded-2xl border border-emerald-200 bg-white p-4 text-slate-900 shadow-2xl"
+          className="fixed bottom-5 right-5 z-[100] flex w-[min(calc(100vw-2.5rem),390px)] items-center gap-3 rounded-2xl border border-emerald-200 bg-white p-4 text-slate-900 shadow-2xl"
         >
           <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
             <Check size={20} />
@@ -114,7 +117,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
           <div className="min-w-0 flex-1">
             <p className="text-sm font-extrabold">Added to cart</p>
             <p className="mt-0.5 truncate text-xs text-slate-600">{cartNotice}</p>
-            <Link href="/cart" className="mt-1 inline-block text-xs font-bold text-blue-700 underline underline-offset-2">
+            <Link href="/cart" className="mt-1 inline-block text-xs font-bold text-brand-700 underline underline-offset-2">
               View cart
             </Link>
           </div>

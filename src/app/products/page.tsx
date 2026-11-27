@@ -1,1 +1,25 @@
-import{StoreProducts}from"@/components/store-products";export const metadata={title:"Shop products"};export default function Products(){return <section className="mx-auto max-w-[1320px] px-6 py-16 lg:px-12"><p className="eyebrow text-blue-600">THE PROTEGER SHOP</p><h1 className="mt-3 font-display text-5xl font-extrabold text-[#081a2e]">All products</h1><p className="mb-10 mt-4 max-w-2xl text-sm leading-7 text-slate-500">Browse all eight products listed in the Proteger collection. Prices shown are sample demonstration prices, not confirmed retail prices.</p><StoreProducts/></section>}
+import type { Metadata } from "next";
+import { PageHero } from "@/components/page-hero";
+import { Container } from "@/components/container";
+import { ProductGrid } from "@/components/product-grid";
+import { CtaBand } from "@/components/cta-band";
+
+export const metadata: Metadata = {
+  title: "Shop Faucets",
+  description: "Shop Proteger automatic lockable kitchen, basin and shower faucets. New lower prices from $29.",
+};
+
+export default async function ProductsPage({ searchParams }: { searchParams: Promise<{ category?: string }> }) {
+  const { category } = await searchParams;
+  return (
+    <>
+      <PageHero eyebrow="The Proteger range" title="Shop automatic lockable faucets" intro="Kitchen, basin and shower mixers in Brushed Nickel or Chrome. Every faucet comes with one standard handle and one patented Automatic Lockable handle." />
+      <section className="bg-mist py-14 lg:py-20">
+        <Container>
+          <ProductGrid key={category ?? "All"} initialCategory={category ?? "All"} />
+        </Container>
+      </section>
+      <CtaBand />
+    </>
+  );
+}

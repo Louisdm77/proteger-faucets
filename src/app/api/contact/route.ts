@@ -7,7 +7,7 @@ export async function POST(request: Request) {
 
   if (!apiKey || !to || !from) {
     return NextResponse.json(
-      { error: "The contact form is not connected yet. Please configure RESEND_API_KEY, CONTACT_TO_EMAIL and CONTACT_FROM_EMAIL." },
+      { error: "Our message service is being set up. Please try again shortly." },
       { status: 503 }
     );
   }
