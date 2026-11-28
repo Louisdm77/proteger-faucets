@@ -48,7 +48,7 @@ const barium = (colour: string, file: string): Omit<ProductInput, "w" | "h"> => 
   finishes: `Chrome with ${colour.toLowerCase()} hose`,
 });
 
-const dims: Record<string, [number, number]> = {"sentry": [392, 640], "barium-black": [383, 529], "barium-blue": [362, 492], "barium-burgundy": [377, 505], "barium-green": [360, 475], "barium-red": [373, 480], "barium-yellow": [375, 489], "cosmos": [349, 350], "metropoliton-mk1": [380, 406], "metropoliton-mk2": [360, 396], "volute": [362, 555], "cornet": [333, 443], "populace": [543, 795], "semblance": [327, 490], "effrontery": [212, 301], "emanate": [162, 296], "skillion-t": [374, 400], "stealth": [402, 505], "skillion-s": [544, 473], "spartus": [360, 553]};
+const dims: Record<string, [number, number]> = {"sentry": [392, 640], "barium-black": [383, 529], "barium-blue": [362, 492], "barium-burgundy": [377, 505], "barium-green": [360, 475], "barium-red": [373, 480], "barium-yellow": [375, 489], "cosmos": [349, 350], "metropoliton-mk1": [250, 296], "metropoliton-mk2": [291, 373], "volute": [362, 555], "cornet": [333, 443], "populace": [543, 795], "semblance": [327, 490], "effrontery": [212, 301], "emanate": [162, 296], "skillion-t": [374, 400], "stealth": [348, 494], "skillion-s": [344, 466], "spartus": [360, 553]};
 
 const productList: Omit<ProductInput, "w" | "h">[] = [
   barium("Black", "Barium-Black.jpg"),
@@ -100,31 +100,31 @@ const productList: Omit<ProductInput, "w" | "h">[] = [
   {
     slug: "metropoliton-mk1",
     name: "Metropoliton Mk1",
-    category: "Kitchen",
-    image: `${wp}/2016/08/Metropoliton_Mk1.jpg`,
+    category: "Shower & Bath",
+    image: "/img/products/mk1.jpg",
     price: 39,
     wasPrice: 69,
-    summary: "Elegant high-arc sink mixer with a curved swivel spout and a side single lever.",
+    summary: "Wall-mounted single-lever shower mixer on a slim rounded-square plate.",
     finishes: "Chrome",
   },
   {
     slug: "metropoliton-mk2",
     name: "Metropoliton Mk2",
-    category: "Kitchen",
-    image: `${wp}/2016/08/Metropoliton_Mk2.jpg`,
+    category: "Shower & Bath",
+    image: "/img/products/mk2.jpg",
     price: 39,
     wasPrice: 69,
-    summary: "The Metropoliton's second generation: a sleek high-arc sink mixer with a smooth swivel spout.",
+    summary: "Wall-mounted shower mixer with an integrated diverter to switch between outlets.",
     finishes: "Chrome",
   },
   {
     slug: "stealth",
     name: "Stealth",
     category: "Kitchen",
-    image: `${wp}/2020/03/Stealth.png`,
+    image: "/img/products/stealth.jpg",
     price: 39,
     wasPrice: 59,
-    summary: "Bold, minimalist kitchen mixer with a squared profile for contemporary kitchens.",
+    summary: "Square-profile kitchen mixer with a black flexible pull-down hose and swivel spout arm.",
     finishes: "Chrome",
   },
   {
@@ -159,10 +159,10 @@ const productList: Omit<ProductInput, "w" | "h">[] = [
     slug: "skillion-s",
     name: "Skillion S",
     category: "Basin",
-    image: `${wp}/2020/03/Skillion-S.jpg`,
+    image: "/img/products/skillion-s.jpg",
     price: 39,
     wasPrice: 49,
-    summary: "Angular, architectural basin mixer with a flat-top lever and waterfall-style spout.",
+    summary: "Tall, square-edged basin mixer designed for vessel and above-counter basins.",
     finishes: nickelChrome,
   },
   {

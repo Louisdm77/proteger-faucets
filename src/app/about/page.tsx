@@ -45,6 +45,13 @@ export default function AboutPage() {
             <div className="prose-craig mt-4 max-w-2xl text-[17px]">
               <p className="font-bold text-ink">PEX (cross-linked polyethylene) is widely replacing copper for residential water supply lines because it is cheaper, faster to install, resists corrosion and is lead free.</p>
               <p className="font-bold text-ink underline underline-offset-4">Pure copper pipes do not contain lead, though lead can still be found on or connected to copper plumbing systems.</p>
+              <div className="mt-6 grid gap-3 text-sm">
+                <p className="font-semibold text-ink">Brass Faucet Facts</p>
+                <a className="break-all text-brand-700 underline" href="https://share.google/aimode/ceD8vxdC9EHqOvvju" target="_blank" rel="noopener noreferrer">https://share.google/aimode/ceD8vxdC9EHqOvvju</a>
+                <p className="mt-2 font-semibold text-ink">Stainless Steel Facts</p>
+                <a className="break-all text-brand-700 underline" href="https://share.google/aimode/T2UqTTH83UVwZJCtG" target="_blank" rel="noopener noreferrer">https://share.google/aimode/T2UqTTH83UVwZJCtG</a>
+                <a className="break-all text-brand-700 underline" href="https://share.google/aimode/fPL2OkEJI6Eqtr7Ey" target="_blank" rel="noopener noreferrer">https://share.google/aimode/fPL2OkEJI6Eqtr7Ey</a>
+              </div>
               <p>Existing brass faucets contain lead, and stainless steel faucets contain chromium. Proteger&rsquo;s nonmetallic Code 5 plastic is BPA free &mdash; the same plastic baby bottles, cups and plastic faucet cartridges are made from.</p>
             </div>
           </div>
